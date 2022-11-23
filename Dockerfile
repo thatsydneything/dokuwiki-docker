@@ -3,18 +3,18 @@ FROM debian:bullseye-slim
 LABEL maintainer="Lachlan Stevens"
 LABEL org.opencontainers.image.source=https://github.com/thatsydneything
 
-ENV DEBIAN_FRONTEND = noninteractive
-ENV LANG = EN
-ENV ACL = ON
-ENV ACL_POLICY = 2
-ENV LICENSE = 0
-ENV ALLOW_REG = OFF
-ENV POP = ON
-ENV TITLE = 
-ENV USERNAME =
-ENV PASSWORD =
-ENV FULL_NAME =
-ENV EMAIL =
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG EN
+ENV ACL ON
+ENV ACL_POLICY 2
+ENV LICENSE 0
+ENV ALLOW_REG OFF
+ENV POP ON
+ENV TITLE DokuWiki 
+ENV USERNAME WikiUser
+ENV PASSWORD Password1
+ENV FULL_NAME "Test WikiUser"
+ENV EMAIL test@test.com
 
 RUN apt update && apt install -y php \ 
                 libapache2-mod-php \
@@ -29,11 +29,7 @@ RUN apt update && apt install -y php \
                 && apt clean \
                 && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-RUN wget https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
-RUN tar xzvf dokuwiki-stable.tgz
-RUN mv dokuwiki-*a /usr/share/dokuwiki
-RUN mv /usr/share/dokuwiki/lib /tmp && mv /usr/share/dokuwiki/conf /tmp && mv /usr/share/dokuwiki/data /tmp
-RUN mkdir /usr/share/dokuwiki/lib && mkdir /usr/share/dokuwiki/conf && mkdir /usr/share/dokuwiki/data
+RUN wget https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz && tar xzvf dokuwiki-stable.tgz && mv dokuwiki-*a /usr/share/dokuwiki && mv /usr/share/dokuwiki/lib /tmp && mv /usr/share/dokuwiki/conf /tmp && mv /usr/share/dokuwiki/data /tmp && mkdir /usr/share/dokuwiki/lib && mkdir /usr/share/dokuwiki/conf && mkdir /usr/share/dokuwiki/data
 
 RUN chown -R www-data:www-data /usr/share/dokuwiki
 
