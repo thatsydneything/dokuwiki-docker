@@ -24,14 +24,13 @@ The container supports a number of different environment variables to customer t
 | -------------                 |--------------                                             | - |
 | `LANG`                | Sets the language used by the install. For information around which languages are available and the completeness of the translation, refer to https://translate.dokuwiki.org/ | `EN` |
 | `ACL`         | Whether or not Access Control Lists are enabled. Acceptable values are `ON` and `OFF` | `ON`|
-| `ACL_POLICY`           | What ACL Policy to apply to the install. Acceptable values are: `0`, `1` and `2` | `2`
-|
+| `ACL_POLICY`           | What ACL Policy to apply to the install. Acceptable values are: `0`, `1` and `2` | `2` |
 | `LICENSE`              | The licence to display on the wiki. Acceptable values are: | `0` |
 | `ALLOW_REG`        | Whether new users are allowed to register on the wiki. Acceptable values are `ON` and `OFF` | `OFF` |
 | `POP`                     | Whether to send anonymous usage statistics to Dokuwiki once per month. Acceptable values are `ON` and `OFF` | `OFF` |
 | `TITLE`              | The title of the wiki   | `DokuWiki` |
 | `USERNAME`              | The username for the initial Admin or 'Super User'                 | `WikiUser` |
-| `PASSWORD` **REQUIRED**             | The password for the initial Admin or 'Super User'. **This variable is required, and the install will fail if it is not provided!** ||
+| `PASSWORD` **REQUIRED**             | The password for the initial Admin or 'Super User'. **This variable is required, and the install will fail if it is not provided!** |
 | `FULL_NAME`               | The full/real name of the initial Admin or 'Super User' | `Wiki User` |
 | `EMAIL`            | The email address for the initial Admin or 'Super User' | `test@test.com` |
 
@@ -60,3 +59,9 @@ A kubernetes tutorial will be available in the future.
 ## How To Contact
 
 At the moment, you can raise any feedback or suggestions by raising an issue on this repo. I'd like to create a blog in future to handle engagement and tutorials etc, but I'm not sure if that'll be done via a standalone blog or via a service like Medium. Watch this space!
+
+## Changelog
+
+### 20220731a.0
+
+- Initial release
