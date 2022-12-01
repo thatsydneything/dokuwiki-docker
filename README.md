@@ -24,8 +24,8 @@ The container supports a number of different environment variables to customer t
 | -------------                 |--------------                                             | - |
 | `LANG`                | Sets the language used by the install. For information around which languages are available and the completeness of the translation, refer to https://translate.dokuwiki.org/ | `EN` |
 | `ACL`         | Whether or not Access Control Lists are enabled. Acceptable values are `ON` and `OFF` | `ON`|
-| `ACL_POLICY`           | What ACL Policy to apply to the install. Acceptable values are: `0`, `1` and `2` | `2` |
-| `LICENSE`              | The licence to display on the wiki. Acceptable values are: | `0` |
+| `ACL_POLICY`           | What ACL Policy to apply to the install. Acceptable values are:<br></br->- `0` (Open Wiki - Read, write, upload for everyone) <br></br->- `1` (Public Wiki - Read for everyone, write and upload for registered users) <br></br->- `2` (Closed Wiki - Read, write, upload for registered users only) | `2` |
+| `LICENSE`              | The licence to display on the wiki. Acceptable values are:<br></br->- `cc-zero`<br></br->- `publicdomain`<br></br->- `cc-by`<br></br->- `cc-by-sa`<br></br->- `gnufdl`<br></br->- `cc-nc`<br></br->- `cc-nc-sa`<br></br->- `0` (no license) | `0` |
 | `ALLOW_REG`        | Whether new users are allowed to register on the wiki. Acceptable values are `ON` and `OFF` | `OFF` |
 | `POP`                     | Whether to send anonymous usage statistics to Dokuwiki once per month. Acceptable values are `ON` and `OFF` | `OFF` |
 | `TITLE`              | The title of the wiki   | `DokuWiki` |
@@ -50,11 +50,11 @@ At its most basic, you can set up Dokuwiki from the Docker CLI like below:
 
 ``docker run -d --mount source=<CONF VOLUME>,target=/usr/share/dokuwiki/conf --mount source=<DATA VOLUME>,target=/usr/share/dokuwiki/data --mount source=<LIB VOLUME>,target=/usr/share/dokuwiki/lib -e PASSWORD=<YOUR PASSWORD> -p 8080:8080 thatsydneything/dokuwiki:latest``
 
-A sample docker compose will be available in the future.
+A sample docker compose is available in the repo.
 
 A kubernetes tutorial will be available in the future.
 
-**Using plain text passwords in the Docker CLI (or any method for that matter) is not recommended - use secrets instead!**
+**Using plain text passwords in the Docker CLI (or any method for that matter) is not recommended - use secrets instead if possible!**
 
 ## How To Contact
 
