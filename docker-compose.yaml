@@ -1,0 +1,37 @@
+services:
+    dokuwiki:
+        environment:
+            - ACL=ON
+            - ACL_POLICY=2
+            - LICENSE=0
+            - ALLOW_REG=OFF
+            - POP=OFF
+            - TITLE=dokuwiki
+            - USERNAME=WikiUser
+            - FULL_NAME=Wiki User
+            - EMAIL=test@test.com
+            - PASSWORD=Password # Plaintext passwords in compose are not recommended!
+        ports:
+            - '8080:8080'
+            - '8443:8443' # if using SSL
+        image: 'thatsydneything/dokuwiki:latest'
+        deploy:
+          resources:
+            limits:
+              memory: 256M
+            reservations:
+              cpus: '0.25'
+              memory: 128M
+        volumes:
+          - dokuwiki-data:/usr/share/dokuwiki/data
+          - dokuwiki-conf:/usr/share/dokuwiki/conf
+          - dokuwiki-lib:/usr/share/dokuwiki/lib
+        networks:
+          - dokuwiki-network
+volumes:
+  dokuwiki-data:
+  dokuwiki-conf:
+  dokuwiki-lib:
+networks:
+  dokuwiki-network:
+    driver: bridge
