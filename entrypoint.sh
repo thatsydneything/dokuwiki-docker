@@ -65,11 +65,18 @@ then
   else
     echo 'Successfully validated environment variables...'
     echo 'Attempting to run install script...'
-    sleep 1
-    CURL_RESPONSE="$(curl  --verbose --location --data-urlencode l="${LANG}" --data-urlencode d[acl]="${ACL}" --data-urlencode d[policy]="${ACL_POLICY}" --data-urlencode d[allowreg]="${ALLOW_REG}" --data-urlencode d[license]="${LICENSE}" --data-urlencode d[pop]="${POP}" --data-urlencode d[title]="${TITLE}" --data-urlencode d[superuser]="${USERNAME}" --data-urlencode d[fullname]="${FULL_NAME}" --data-urlencode d[email]="${EMAIL}" --data-urlencode d[password]="${PASSWORD}" --data-urlencode d[confirm]="${PASSWORD}" --data-urlencode submit= http://127.0.0.1:8080/install.php 2>&1)"
+    CURL_RESPONSE="$(curl  --silent --location --data-urlencode l="${LANG}" --data-urlencode d[acl]="${ACL}" --data-urlencode d[policy]="${ACL_POLICY}" --data-urlencode d[allowreg]="${ALLOW_REG}" --data-urlencode d[license]="${LICENSE}" --data-urlencode d[pop]="${POP}" --data-urlencode d[title]="${TITLE}" --data-urlencode d[superuser]="${USERNAME}" --data-urlencode d[fullname]="${FULL_NAME}" --data-urlencode d[email]="${EMAIL}" --data-urlencode d[password]="${PASSWORD}" --data-urlencode d[confirm]="${PASSWORD}" --data-urlencode submit= http://127.0.0.1:8080/install.php 2>&1)"
     if [[ "${CURL_RESPONSE}" == *"The configuration was finished successfully"* ]]
     then  
       echo 'Dokuwiki installation completed successfully...'
+      echo 'Configuring URL Rewriting...'
+      echo "\$conf['userewrite'] = ${REWRITE_URLS};" >> /usr/share/dokuwiki/conf/local.php
+      if [ ${REWRITE_URLS} == 1 ]
+      then
+        echo 'Enabling Apache rewrite module and restarting...'
+        a2enmod rewrite
+        service apache2 reload
+      fi
     else
       echo 'Dokuwiki installation failed. Terminating...'
       exit 1

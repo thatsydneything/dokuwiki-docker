@@ -16,6 +16,7 @@ ENV PASSWORD ""
 ENV FULL_NAME "Wiki User"
 ENV EMAIL test@test.com
 ENV DEBUG_DISABLE_INSTALL 0
+ENV REWRITE_URLS 1
 
 RUN apt update && apt install -y php \ 
                 libapache2-mod-php \
