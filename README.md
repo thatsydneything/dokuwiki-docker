@@ -33,6 +33,7 @@ The container supports a number of different environment variables to customer t
 | `PASSWORD` **REQUIRED**             | The password for the initial Admin or 'Super User'. **This variable is required, and the install will fail if it is not provided!** |
 | `FULL_NAME`               | The full/real name of the initial Admin or 'Super User' | `Wiki User` |
 | `EMAIL`            | The email address for the initial Admin or 'Super User' | `test@test.com` |
+| `REWRITE_URLS` | Whether to configure Apache and Dokuwiki to support prettier URLs. Acceptable values are: <br></br>- `0` No URL Rewriting<br></br>- `1` URL Rewriting | `1` |
 
 ## Persistence
 
