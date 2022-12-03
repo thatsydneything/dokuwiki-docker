@@ -69,19 +69,28 @@ then
     if [[ "${CURL_RESPONSE}" == *"The configuration was finished successfully"* ]]
     then  
       echo 'Dokuwiki installation completed successfully...'
-      echo 'Configuring URL Rewriting...'
-      echo "\$conf['userewrite'] = ${REWRITE_URLS};" >> /usr/share/dokuwiki/conf/local.php
-      if [ ${REWRITE_URLS} == 1 ]
-      then
-        echo 'Enabling Apache rewrite module and restarting...'
-        a2enmod rewrite
-        service apache2 reload
-      fi
     else
       echo 'Dokuwiki installation failed. Terminating...'
       exit 1
     fi
   fi
 fi
+
+echo 'Configuring URL Rewriting...'
+
+if grep -q $"\$conf['userewrite'] =" /usr/share/dokuwiki/conf/local.php
+  then
+    sed -i $"s/\$conf['userewrite'] = .;/\$conf['userewrite'] = ${REWRITE_URLS};/" /usr/share/dokuwiki/conf/local.php
+  else
+    echo $"\$conf['userewrite'] = ${REWRITE_URLS};" >> /usr/share/dokuwiki/conf/local.php
+fi
+
+if [ ${REWRITE_URLS} == 1 ]
+then
+  echo 'Enabling Apache rewrite module and restarting...'
+  a2enmod rewrite
+  service apache2 reload
+fi
+
 echo 'Dokuwiki up!'
 tail -f /var/log/apache2/access.log
