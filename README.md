@@ -6,6 +6,8 @@ dokuwiki-docker is a lightweight, simple and highly customisable containerisatio
 
 This image has been designed to be as lightweight and secure as possible, but is still a work in progress, and I'm fairly new to creating Dockerfiles. To that end, any ideas, suggestions or feedback are welcome and can be submitted as issues.
 
+[Get it at Docker Hub!](https://hub.docker.com/repository/docker/thatsydneything/dokuwiki "Get it at Docker Hub!")
+
 ## Versioning
 
 The versioning for the dokuwiki images are simple - they follow the pattern of the dokuwiki release date followed by an increment which represents the revision of the container for the particular dokuwiki version. There are three ways to get the image:
