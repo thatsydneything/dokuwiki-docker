@@ -1,10 +1,12 @@
 # dokuwiki-docker
 
-![GitHub](https://img.shields.io/github/license/thatsydneything/dokuwiki-docker?style=for-the-badge) ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/thatsydneything/dokuwiki-docker?style=for-the-badge) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/thatsydneything/dokuwiki/latest?style=for-the-badge) ![Docker Pulls](https://img.shields.io/docker/pulls/thatsydneything/dokuwiki?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/thatsydneything/dokuwiki-docker?style=for-the-badge) ![GitHub](https://img.shields.io/github/license/thatsydneything/dokuwiki-docker?style=for-the-badge) ![Docker Stars](https://img.shields.io/docker/stars/thatsydneything/dokuwiki?style=for-the-badge) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/thatsydneything/dokuwiki/latest?style=for-the-badge) ![Docker Pulls](https://img.shields.io/docker/pulls/thatsydneything/dokuwiki?style=for-the-badge)
 
 dokuwiki-docker is a lightweight, simple and highly customisable containerisation of the flat file based wiki, Dokuwiki!
 
 This image has been designed to be as lightweight and secure as possible, but is still a work in progress, and I'm fairly new to creating Dockerfiles. To that end, any ideas, suggestions or feedback are welcome and can be submitted as issues.
+
+[Get it at Docker Hub!](https://hub.docker.com/repository/docker/thatsydneything/dokuwiki "Get it at Docker Hub!")
 
 ## Versioning
 
