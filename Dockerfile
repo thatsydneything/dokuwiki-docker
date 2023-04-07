@@ -31,8 +31,8 @@ RUN apt update && apt install -y php \
                 && apt clean \
                 && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-RUN wget https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz && tar xzvf dokuwiki-stable.tgz \
-    && mv dokuwiki-*a /usr/share/dokuwiki && mv /usr/share/dokuwiki/lib /tmp && mv /usr/share/dokuwiki/conf /tmp \
+RUN mkdir /usr/share/dokuwiki && wget https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz && tar xzvf dokuwiki-stable.tgz -C /usr/share/dokuwiki --strip 1 \
+    && mv /usr/share/dokuwiki/lib /tmp && mv /usr/share/dokuwiki/conf /tmp \
     && mv /usr/share/dokuwiki/data /tmp && mkdir /usr/share/dokuwiki/lib \
     && mkdir /usr/share/dokuwiki/conf && mkdir /usr/share/dokuwiki/data && chown -R www-data:www-data /usr/share/dokuwiki/* && chown -R www-data:www-data /tmp \
     && chown -R www-data:www-data /var/log/apache2 && chown -R www-data:www-data /var/run/apache2 && chown -R www-data:www-data /etc/apache2 && chown -R www-data:www-data /var/lib/apache2 \
