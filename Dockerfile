@@ -1,4 +1,4 @@
-FROM ubuntu:22.10
+FROM ubuntu:23.04
 
 LABEL maintainer="That Sydney Thing"
 LABEL org.opencontainers.image.source=https://github.com/thatsydneything/dokuwiki-docker
