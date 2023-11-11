@@ -1,7 +1,9 @@
-FROM ubuntu:23.04
+FROM ubuntu:23.10
 
 LABEL maintainer="That Sydney Thing"
 LABEL org.opencontainers.image.source=https://github.com/thatsydneything/dokuwiki-docker
+LABEL org.opencontainers.image.ref.name=dokuwiki
+LABEL org.opencontainers.image.version=2023-04-04a
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG EN
